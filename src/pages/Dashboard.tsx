@@ -6,7 +6,7 @@ import {
 import { 
   Upload, ArrowUpRight, ShieldAlert, Sparkles, Crown, Users, Briefcase, 
   UserCheck, DollarSign, Scale, Megaphone, Calendar, FileCheck, CheckCircle2,
-  Clock, FileText, ChevronRight, Activity, TrendingUp, AlertTriangle
+  Clock, FileText, ChevronRight, Activity, TrendingUp, AlertTriangle, Eye, Globe
 } from 'lucide-react';
 import { Agent, DocumentItem, AuditLog, MetricData, WorkloadData } from '../types';
 
@@ -16,6 +16,7 @@ interface DashboardProps {
   auditLogs: AuditLog[];
   metrics: MetricData[];
   workload: WorkloadData[];
+  visitorCount?: number;
 }
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -37,6 +38,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   auditLogs,
   metrics,
   workload,
+  visitorCount = 1483,
 }) => {
   const navigate = useNavigate();
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('7d');
@@ -75,8 +77,22 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </div>
 
-      {/* Top Stat Metric Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Top Stat Metric Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* Visitors Card */}
+        <div className="glass-panel rounded-xl p-5 border border-purple-500/30 bg-purple-950/10 flex items-center justify-between shadow-lg">
+          <div>
+            <p className="text-xs font-medium text-purple-300">Total Site Visitors</p>
+            <h3 className="text-2xl font-bold text-white mt-1 font-mono">{visitorCount.toLocaleString()}</h3>
+            <p className="text-[11px] text-purple-400 font-medium flex items-center gap-1 mt-1">
+              <TrendingUp className="w-3 h-3 text-emerald-400" /> +18.4% live visits
+            </p>
+          </div>
+          <div className="p-3 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/30">
+            <Globe className="w-6 h-6 animate-pulse" />
+          </div>
+        </div>
+
         <div className="glass-panel rounded-xl p-5 border border-slate-800 flex items-center justify-between">
           <div>
             <p className="text-xs font-medium text-slate-400">Processed this week</p>

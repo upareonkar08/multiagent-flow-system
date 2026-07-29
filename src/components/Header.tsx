@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Bell, Upload, Search, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Bell, Upload, Search, CheckCircle2, ShieldCheck, Eye, Users } from 'lucide-react';
 import { NotificationItem } from '../types';
 import { NotificationModal } from './NotificationModal';
 
 interface HeaderProps {
   notifications: NotificationItem[];
   onMarkAllRead: () => void;
+  visitorCount?: number;
 }
 
-export const Header: React.FC<HeaderProps> = ({ notifications, onMarkAllRead }) => {
+export const Header: React.FC<HeaderProps> = ({ notifications, onMarkAllRead, visitorCount = 1483 }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [showNotifications, setShowNotifications] = useState(false);
@@ -44,6 +45,15 @@ export const Header: React.FC<HeaderProps> = ({ notifications, onMarkAllRead }) 
 
       {/* Action Controls */}
       <div className="flex items-center gap-4">
+        {/* Live Visitor Counter Badge */}
+        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-950/40 border border-purple-500/30 text-xs text-slate-200 shadow-sm">
+          <Eye className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
+          <span className="text-[11px] text-slate-400">Total Visits:</span>
+          <span className="font-mono font-bold text-purple-300">
+            {visitorCount.toLocaleString()}
+          </span>
+        </div>
+
         {/* Active System Status Pill */}
         <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs text-slate-300">
           <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />

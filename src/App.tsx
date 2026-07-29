@@ -8,6 +8,7 @@ import { AgentDetail } from './pages/AgentDetail';
 import { AuditTrail } from './pages/AuditTrail';
 import { Notifications } from './pages/Notifications';
 import { Settings } from './pages/Settings';
+import { useVisitorCounter } from './hooks/useVisitorCounter';
 import { 
   INITIAL_AGENTS, 
   INITIAL_DOCUMENTS, 
@@ -25,6 +26,9 @@ export const App: React.FC = () => {
   const [notifications, setNotifications] = useState<NotificationItem[]>(INITIAL_NOTIFICATIONS);
   const [metrics, setMetrics] = useState(WEEKLY_DOCUMENTS_METRICS);
   const [workload, setWorkload] = useState(AGENT_WORKLOAD_DATA);
+
+  // Hook for live Visitor Counter
+  const { visitorCount } = useVisitorCounter();
 
   // Add newly routed document from Upload simulator
   const handleAddDocument = (newDoc: DocumentItem) => {
@@ -90,6 +94,7 @@ export const App: React.FC = () => {
           <Header
             notifications={notifications}
             onMarkAllRead={handleMarkAllRead}
+            visitorCount={visitorCount}
           />
 
           {/* Page View Routes */}
@@ -104,6 +109,7 @@ export const App: React.FC = () => {
                     auditLogs={auditLogs}
                     metrics={metrics}
                     workload={workload}
+                    visitorCount={visitorCount}
                   />
                 }
               />
