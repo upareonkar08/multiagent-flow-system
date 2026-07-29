@@ -38,7 +38,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   auditLogs,
   metrics,
   workload,
-  visitorCount = 1483,
+  visitorCount = 1,
 }) => {
   const navigate = useNavigate();
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d'>('7d');
@@ -85,7 +85,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             <p className="text-xs font-medium text-purple-300">Total Site Visitors</p>
             <h3 className="text-2xl font-bold text-white mt-1 font-mono">{visitorCount.toLocaleString()}</h3>
             <p className="text-[11px] text-purple-400 font-medium flex items-center gap-1 mt-1">
-              <TrendingUp className="w-3 h-3 text-emerald-400" /> +18.4% live visits
+              <TrendingUp className="w-3 h-3 text-emerald-400" /> Live visit counter
             </p>
           </div>
           <div className="p-3 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/30">

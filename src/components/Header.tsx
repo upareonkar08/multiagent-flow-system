@@ -10,7 +10,7 @@ interface HeaderProps {
   visitorCount?: number;
 }
 
-export const Header: React.FC<HeaderProps> = ({ notifications, onMarkAllRead, visitorCount = 1483 }) => {
+export const Header: React.FC<HeaderProps> = ({ notifications, onMarkAllRead, visitorCount = 1 }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [showNotifications, setShowNotifications] = useState(false);
