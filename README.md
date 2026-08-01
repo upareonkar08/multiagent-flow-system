@@ -56,7 +56,9 @@ Orchestra AI is a modern, real-time **multi-agent business automation platform**
 - One-click mark-all-as-read
 
 ### ⚙️ Platform Settings
-
+- AI LLM model selection (Antigravity Flash 3.6, Gemini 1.5 Pro, Claude Sonnet)
+- Auto-routing confidence threshold slider
+- Autonomous guardrails & email alert toggles
 
 ---
 
