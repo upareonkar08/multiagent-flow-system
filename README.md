@@ -8,7 +8,7 @@
 
 > **Smart business automation.** Upload documents and let AI agents route, analyze, and act — autonomously.
 
-Orchestra AI is a modern, real-time **multi-agent business automation platform** that intelligently classifies, routes, and processes documents across **10 specialized AI agents**. Built with React, TypeScript, Vite, and TailwindCSS.
+
 
 ---
 
