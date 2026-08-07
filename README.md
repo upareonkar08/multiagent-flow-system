@@ -162,5 +162,7 @@ This project is open source and available under the [MIT License](LICENSE).
 **upareonkar08** — [GitHub](https://github.com/upareonkar08)
 
 ---
-
+<p align="center">
+  Built with ❤️ using React, TypeScript & AI-powered automation
+</p>
 
