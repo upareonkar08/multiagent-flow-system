@@ -82,7 +82,9 @@ npm install
 npm run dev
 ```
 
-T
+The app will be running at **http://localhost:3000/**
+
+### Production Build
 
 ```bash
 npm run build
